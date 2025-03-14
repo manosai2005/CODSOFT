@@ -13,11 +13,9 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;            
     color: white;
 }
-
-
 .container {
     width: 100%;
     padding-left: 100px;
@@ -28,20 +26,28 @@ header h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700; 
     font-size: 60px;
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 header p {
-    font-family: cursive;
+    font-family: 'Poppins', sans-serif;;
     font-size: 22px;
     white-space: pre-line; 
 }
-
 .pages {
     display: flex;
+    flex-wrap: wrap;  
     justify-content: center;
     gap: 20px;
-    padding: 15px;
+    padding: 10px;
     width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    text-align: center;
+    overflow: hidden; 
+    white-space: nowrap; 
 }
 
 .pages a {
@@ -50,6 +56,7 @@ header p {
     font-size: 18px;
     padding: 10px 15px;
     transition: 0.3s;
+    white-space: nowrap; 
 }
 
 .pages a:hover {
@@ -92,7 +99,7 @@ header p {
 }
 
 .bio p {
-    font-family: cursive;
+    font-family: 'Poppins', sans-serif;;
     font-size: 22px;
 }
 
@@ -178,10 +185,10 @@ header p {
 .projects-container{
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
+    width: 100%;
     margin: auto;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -204,12 +211,6 @@ header p {
     font-family: 'Poppins', sans-serif;
     padding: 10px;
 }
-.project p {
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    padding: 20px;
-}
 .resume {
     background-image: url(image2.png);
     background-size: cover; 
@@ -219,10 +220,12 @@ header p {
     width: 100%;
     color: white;
     text-align: center;
-    justify-content: center;
-    padding-top: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 0 20px;
 }
-
 .resume h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 50px;
@@ -249,7 +252,8 @@ header p {
 }
 
 .btn:hover {
-    background-color: #e68900;
+    background-color: #f8e4a6;
+    color: #fffefe;
 }
 .contact {
     background-image: url(image2.png);  
@@ -304,34 +308,142 @@ header p {
 body {
     font-size: 18px;
 }
+/* Default styles are already mobile-first */
 
-@media screen and (max-width: 1366px) {
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
     .container {
-        max-width: 1100px;
-        margin: auto;
+        padding-left: 50px;
+        padding-top: 100px;
     }
-
     header h1 {
         font-size: 45px;
+        margin-top: 60px;
+    }
+    header p {
+        font-size: 18px;
+    }
+    .bio, .skills-container, .projects-container {
+        max-width: 90%;
+    }
+    .bio h2, .skills h2, .projects h2, .resume h2, .contact h2 {
+        font-size: 45px;
+    }
+    .bio p, .resume p {
+        font-size: 18px;
+    }
+    .profile-image {
+        width: 250px;
+        height: 260px;
+    }
+    .skills-container, .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .project img {
+        width: 250px;
+        height: 180px;
     }
 }
-@media screen and (max-width: 768px) {
+
+/* Mobile Devices (Up to 768px) */
+@media (max-width: 768px) {
     .container {
-        width: 95%;
-        padding: 10px;
+        padding-left: 20px;
+        padding-top: 80px;
         text-align: center;
     }
-
+    header {
+        align-items: center;
+    }
     header h1 {
+        font-size: 35px;
+        margin-top: 40px;
+    }
+    header p {
+        font-size: 16px;
+    }
+    .pages {
+        flex-direction: row;
+        gap: 10px;
+        padding: 5px;
+    }
+    .pages a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    .about {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 10px;
+    }
+    .profile-image {
+        width: 200px;
+        height: 210px;
+    }
+    .bio h2 {
+        font-size: 40px;
+    }
+    .bio p {
+        font-size: 16px;
+    }
+    
+    .skill p {
+        font-size: 14px;
+    }
+    .project img {
+        width: 200px;
+        height: 150px;
+    }
+    .contact h2, .resume h2 {
+        font-size: 35px;
+    }
+    .resume p, .contact p {
+        font-size: 16px;
+    }
+}
+
+/* Small Screens (Up to 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 10px;
+        padding-top: 60px;
+        text-align: center;
+    }
+    header h1 {
+        font-size: 28px;
+    }
+    header p {
+        font-size: 14px;
+    }
+    .pages a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .bio h2 {
+        font-size: 32px;
+    }
+    .bio p {
+        font-size: 14px;
+    }
+    .profile-image {
+        width: 180px;
+        height: 190px;
+    }
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+    .skill p {
+        font-size: 12px;
+    }
+    .project img {
+        width: 180px;
+        height: 130px;
+    }
+    .contact h2, .resume h2 {
         font-size: 30px;
     }
-
-    .content {
+    .resume p, .contact p {
         font-size: 14px;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 6px 12px;
     }
 }
